@@ -1,5 +1,7 @@
 package system.controller;
 
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,17 +12,18 @@ import system.service.UserService;
 import java.util.List;
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(value = "/users")
-    public ResponseEntity<?> save(@RequestBody User user){
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public  void save(@RequestBody User user){
         userService.save(user);
-        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/users")
+    @GetMapping
     public ResponseEntity<List<User>> select() {
         final List<User> users = userService.selectAll();
 
@@ -30,7 +33,7 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping(value = "/users/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<User> select(@PathVariable(name = "id") int id) {
         final User user = userService.selectById(id);
 
@@ -40,8 +43,8 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PutMapping(value = "/users/{id}")
-    public ResponseEntity<?> update(@PathVariable(name = "id") int id,
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Integer> update(@PathVariable(name = "id") int id,
                                     @RequestBody User user) {
         final boolean updated = userService.update(user, id);
 
@@ -51,8 +54,8 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
 
-    @DeleteMapping(value = "/users/{id}")
-    public ResponseEntity<?> delete(@PathVariable(name = "id") int id) {
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Integer> delete(@PathVariable(name = "id") int id) {
         final boolean deleted = userService.deleteById(id);
 
         if (deleted)

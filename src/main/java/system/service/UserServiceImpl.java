@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService{
     @Autowired
-    private DaoService daoService;
+    private DaoService<User> daoService;
 
 
     @Override
