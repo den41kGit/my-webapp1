@@ -20,6 +20,11 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public void saveMultiple(List<User> list) {
+        daoService.saveMultiple(list);
+    }
+
+    @Override
     public User selectById(int id) {
         return (User) daoService.selectById(id);
     }

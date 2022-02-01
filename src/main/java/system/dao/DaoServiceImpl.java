@@ -20,6 +20,13 @@ public class DaoServiceImpl implements DaoService<User> {
     }
 
     @Override
+    public void saveMultiple(List<User> list) {
+        for (int i = 0; i < list.size(); i++){
+            save(list.get(i));
+        }
+    }
+
+    @Override
     public User selectById(int id) {
         return USERS.get(id);
     }

@@ -1,8 +1,9 @@
-config\MySpringMvcDispatcherSerlvetIntitializer.class
+system\config\SpringConfig.class
+system\model\UserRole.class
 system\dao\DaoService.class
 system\service\UserServiceImpl.class
 system\controller\UserController.class
 system\model\User.class
 system\service\UserService.class
-config\SpringConfig.class
+system\config\SpringMvcDispatcherSerlvetIntitializer.class
 system\dao\DaoServiceImpl.class

@@ -1,7 +1,5 @@
 package system.controller;
 
-
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +19,12 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     public  void save(@RequestBody User user){
         userService.save(user);
+    }
+
+    @PostMapping("/saveAll")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void saveMultiple(@RequestBody List<User> list){
+        userService.saveMultiple(list);
     }
 
     @GetMapping
