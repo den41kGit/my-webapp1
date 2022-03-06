@@ -2,6 +2,10 @@ package system.model;
 
 import lombok.*;
 
+/**
+ * POJO класс пользователя
+ */
+
 @Getter
 @Setter
 @NoArgsConstructor

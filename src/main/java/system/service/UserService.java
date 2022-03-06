@@ -4,7 +4,9 @@ import system.model.User;
 
 import java.util.List;
 
-
+/**
+ * Сервис по работе с Пользователями
+ */
 public interface UserService {
 
     void save(User user);
