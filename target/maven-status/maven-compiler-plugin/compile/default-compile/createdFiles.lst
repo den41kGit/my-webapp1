@@ -1,0 +1,9 @@
+system\config\SpringConfig.class
+system\model\UserRole.class
+system\dao\DaoService.class
+system\service\UserServiceImpl.class
+system\controller\UserController.class
+system\model\User.class
+system\service\UserService.class
+system\config\SpringMvcDispatcherSerlvetIntitializer.class
+system\dao\DaoServiceImpl.class
