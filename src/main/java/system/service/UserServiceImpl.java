@@ -18,13 +18,13 @@ public class UserServiceImpl implements UserService{
     private DaoService<User> daoService;
 
     @Override
-    public void save(User user) {
-        daoService.save(user);
+    public User save(User user) {
+        return daoService.save(user);
     }
 
     @Override
-    public void saveMultiple(List<User> list) {
-        daoService.saveMultiple(list);
+    public List<User> saveMultiple(List<User> list) {
+        return daoService.saveMultiple(list);
     }
 
     @Override

@@ -19,14 +19,14 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public  void save(@RequestBody User user){
-        userService.save(user);
+    public  User save(@RequestBody User user){
+        return userService.save(user);
     }
 
     @PostMapping("/saveAll")
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveMultiple(@RequestBody List<User> list){
-        userService.saveMultiple(list);
+    public List<User> saveMultiple(@RequestBody List<User> list){
+        return userService.saveMultiple(list);
     }
 
     @GetMapping
@@ -57,7 +57,7 @@ public class UserController {
         if (updated)
            return new ResponseEntity<>(HttpStatus.OK);
         else
-            return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping(value = "/{id}")
@@ -67,6 +67,6 @@ public class UserController {
         if (deleted)
             return new ResponseEntity<>(HttpStatus.OK);
         else
-            return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }

@@ -11,13 +11,13 @@ public interface DaoService<T> {
      * метод добавления элемента в БД
      * @param element
      */
-    void save(T element);
+    T save(T element);
 
     /**
      * Методо добавления нескольких элементов в БД
      * @param list
      */
-    void saveMultiple(List<T> list);
+    List<T> saveMultiple(List<T> list);
 
     /**
      * Выбор элемента по ИД

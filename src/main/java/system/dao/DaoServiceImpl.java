@@ -13,17 +13,20 @@ public class DaoServiceImpl implements DaoService<User> {
     private static final AtomicInteger USERS_ID_GENERATION = new AtomicInteger();
 
     @Override
-    public void save(User user) {
+    public User save(User user) {
         final int userId = USERS_ID_GENERATION.incrementAndGet();
         user.setId(userId);
         USERS.put(userId, user);
+        return USERS.get(userId);
     }
 
     @Override
-    public void saveMultiple(List<User> list) {
+    public List<User> saveMultiple(List<User> list) {
+        List<User> arr = new ArrayList();
         for (User user : list) {
-            save(user);
+            arr.add(save(user));
         }
+        return arr;
     }
 
     @Override
